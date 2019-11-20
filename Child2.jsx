@@ -15,7 +15,7 @@ class Child2 extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  value: state.value2FromRedux,
+  value: state.value2FromRedux[0] ? state.value2FromRedux[0].price : 0,
 });
 
 export default connect(mapStateToProps)(Child2);

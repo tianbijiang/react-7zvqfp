@@ -15,7 +15,7 @@ class Child3 extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  value: state.value3FromRedux,
+  value: state.value3FromRedux[0] ? state.value3FromRedux[0].options : 0,
 });
 
 export default connect(mapStateToProps)(Child3);
