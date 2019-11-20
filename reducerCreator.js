@@ -5,25 +5,27 @@ const defaultState = {
     minipdpAttribute: [],
 };
 
-export default function (reducerFunction, sourceMiniPDP) {
+export default function (reducerFunction, sourceMiniPDP, reducerName) {
     return (state, action) => {
         if (state === undefined) {
             return sourceMiniPDP ? defaultState.minipdpAttribute : defaultState.pdpAttribute;
         }
-
         if (action.payload.sourceMiniPDP !== sourceMiniPDP) {
-            return state;
+          return state;
         }
-        return reducerFunction(state, action);
+
+        // option 1
+        // return reducerFunction(state, action);
+        
+        // option2
         if (action.payload.sourceMiniPDP) {
             const inputState = head(state);
             const newMiniPDPState = reducerFunction(inputState, action);
-            console.log("trigger");
             if (inputState !== newMiniPDPState) {
                 return [newMiniPDPState];
             }
-        } else {
-            return reducerFunction(state, action);   //Normal PDP reducer call
+            return state;
         }
+        return reducerFunction(state, action);
     };
 }

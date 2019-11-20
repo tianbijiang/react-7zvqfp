@@ -1,6 +1,6 @@
 export default function(payload) {
   return {
     type: 'UPDATE',
-    payload,
+    payload: {...payload, reducerName: "reducerTemplate"},
   };
 }

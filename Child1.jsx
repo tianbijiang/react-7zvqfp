@@ -7,7 +7,7 @@ class Child1 extends React.Component {
   }
 
   render() {
-    console.log("pdp");
+    console.log("pdp rerender");
     return (
       <div>
         pdp product details: {JSON.stringify(this.props.value)}

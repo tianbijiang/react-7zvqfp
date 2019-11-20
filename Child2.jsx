@@ -7,7 +7,7 @@ class Child2 extends React.Component {
   }
 
   render() {
-    console.log("mini");
+    console.log("mini rerender");
     return (
       <div>mini pdp product details: {JSON.stringify(this.props.value)}</div>
     );
