@@ -1,5 +1,3 @@
-import { head } from 'lodash';
-
 const defaultState = {
     pdpAttribute: {},
     minipdpAttribute: [],
@@ -19,7 +17,7 @@ export default function (reducerFunction, sourceMiniPDP, reducerName) {
         
         // option2
         if (action.payload.sourceMiniPDP) {
-            const inputState = head(state);
+            const inputState = state[0];
             const newMiniPDPState = reducerFunction(inputState, action);
             if (inputState !== newMiniPDPState) {
                 return [newMiniPDPState];
