@@ -11,13 +11,9 @@ export default function (reducerFunction, sourceMiniPDP, reducerName) {
         if (action.payload.sourceMiniPDP !== sourceMiniPDP) {
           return state;
         }
-
-        // option 1
-        // return reducerFunction(state, action);
         
-        // option2
-        if (action.payload.sourceMiniPDP) {
-            const inputState = state[0];
+        if (sourceMiniPDP && (action.sourceMiniPDP || (action.payload && action.payload.sourceMiniPDP))) {
+            const inputState = state[0]; // always first element. need to change the logic if we are showing multiple MiniPDP
             const newMiniPDPState = reducerFunction(inputState, action);
             if (inputState !== newMiniPDPState) {
                 return [newMiniPDPState];
